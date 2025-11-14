@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>اراک گرافیک — فروش لوازم هنری</title>
+  <meta name="description" content="اراک گرافیک — فروش لوازم هنری با بهترین قیمت و کیفیت. انتخاب حرفه‌ای‌ها برای رنگ، قلم‌مو، بوم، رزین و ابزار هنری." />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#1f7a4c;
+      --muted:#6b6b6b;
+      --bg:#fff;
+      --card:#fafafa;
+    }
+    *{box-sizing:border-box;font-family:'Vazirmatn',system-ui,-apple-system,'Segoe UI',Roboto,Arial;}
+    body{margin:0;background:linear-gradient(180deg,#ffffff,#f6f7f8);color:#111;}
+    .container{max-width:1100px;margin:28px auto;padding:20px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:64px;height:64px;background:var(--accent);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    nav{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+    a.btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600;}
+    main{margin-top:22px}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center}
+    .hero-card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(30,30,30,0.04)}
+    .hero h2{margin:0 0 8px;font-size:26px}
+    .hero p{margin:0 0 14px}
+    .search{display:flex;gap:8px}
+    .search input{flex:1;padding:10px;border-radius:8px;border:1px solid #e6e6e6}
+    .categories{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+    .cat{background:#fff;padding:10px 12px;border-radius:10px;border:1px solid #eee;min-width:120px;text-align:center}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:20px}
+    .card{background:#fff;padding:14px;border-radius:10px;border:1px solid #eee}
+    .card img{width:100%;height:150px;object-fit:cover;border-radius:8px}
+    .card h3{margin:8px 0 4px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .price{margin-top:8px;font-weight:700;color:var(--accent)}
+    footer{margin-top:30px;padding:16px;border-top:1px solid #eee;color:var(--muted);font-size:14px;text-align:center}
+    .tags{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+    .tag{background:#f2f7f4;padding:6px 8px;border-radius:8px;color:var(--accent);font-weight:600;font-size:13px}
+    /* modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.5)}
+    .modal.open{display:flex}
+    .modal .box{width:92%;max-width:760px;background:#fff;border-radius:12px;padding:18px}
+    .modal .box img{width:100%;height:320px;object-fit:cover;border-radius:8px}
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} .cols{grid-template-columns:1fr} .logo{width:52px;height:52px;font-size:18px} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">اگ</div>
+        <div>
+          <h1>اراک گرافیک</h1>
+          <p class="lead">فروش لوازم هنری با بهترین قیمت و کیفیت — انتخاب حرفه‌ای‌ها</p>
+        </div>
+      </div>
+      <div>
+        <a class="btn" href="#contact">تماس با ما</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <h2>فروش لوازم هنری با بهترین قیمت و کیفیت</h2>
+          <p>هرآنچه یک هنرمند نیاز دارد؛ از رنگ و قلم‌مو تا بوم و رزین — انتخاب حرفه‌ای‌ها</p>
+          <div class="search">
+            <input id="search" placeholder="جستجو برای رنگ، قلم‌مو، بوم..." />
+            <a class="btn" href="#" onclick="filterProducts()">جستجو</a>
+          </div>
+
+          <div class="categories">
+            <div class="cat" onclick="filterBy('all')">همه</div>
+            <div class="cat" onclick="filterBy('paint')">رنگ</div>
+            <div class="cat" onclick="filterBy('brush')">قلم‌مو</div>
+            <div class="cat" onclick="filterBy('canvas')">بوم</div>
+            <div class="cat" onclick="filterBy('resin')">رزین</div>
+          </div>
+
+          <div style="margin-top:12px">
+            <strong>ارسال به سراسر ایران</strong>
+            <div class="tags">
+              <span class="tag">ضمانت اصالت</span>
+              <span class="tag">قیمت رقابتی</span>
+              <span class="tag">پشتیبانی ۷ روز هفته</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:10px">
+          <div style="background:linear-gradient(180deg,#fff,#fbfffc);padding:14px;border-radius:12px;border:1px solid #eef7ee">
+            <h3 style="margin:0 0 6px">جدیدترین‌ها</h3>
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800&auto=format&fit=crop&crop=faces" alt="" style="width:100%;height:200px;object-fit:cover;border-radius:8px" />
+            <p style="margin:10px 0 0;color:var(--muted)">بوم‌های آماده و مجموعه‌های شروع کار</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 style="margin-top:26px">پیشنهادات ویژه</h2>
+        <div class="grid" id="products">
+          <!-- product cards generated by script -->
+        </div>
+      </section>
+
+      <section id="about" style="margin-top:26px">
+        <div class="hero-card">
+          <h3>درباره اراک گرافیک</h3>
+          <p>اراک گرافیک مجموعه‌ای از بهترین لوازم هنری را گردآوری کرده تا هنرمندان از آماتور تا حرفه‌ای، همه ابزار مورد نیازشان را با قیمت مناسب پیدا کنند. توضیحات تخصصی، انتخاب برندهای معتبر و ارسال سریع از اولویت‌های ماست.</p>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:20px">
+        <div class="hero-card">
+          <h3>تماس با ما</h3>
+          <p>ایمیل: info@arakgraphic.example (برای انتشار واقعی، ایمیل خود را جایگزین کن)</p>
+          <p>آدرس: اراک — ارسال به سراسر ایران</p>
+          <p>برای سفارش یا همکاری: <a href="mailto:info@arakgraphic.example">ارسال ایمیل</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 اراک گرافیک — انتخاب حرفه‌ای‌ها
+    </footer>
+  </div>
+
+  <!-- product modal -->
+  <div class="modal" id="modal">
+    <div class="box">
+      <button style="float:left;background:#eee;border:0;padding:8px 10px;border-radius:8px" onclick="closeModal()">بستن</button>
+      <img id="modalImg" src="" alt="">
+      <div class="cols">
+        <div>
+          <h3 id="modalTitle"></h3>
+          <p id="modalDesc" style="color:var(--muted)"></p>
+          <p class="price" id="modalPrice"></p>
+        </div>
+        <div>
+          <h4>مشخصات</h4>
+          <ul id="modalSpecs"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // sample product data (you can replace with محصولات واقعی)
+    const products = [
+      {
+        id:1, category:'paint', title:'رنگ اکریلیک حرفه‌ای 500ml — سفید تیتانیوم',
+        img:'https://images.unsplash.com/photo-1526312426976-6f4ee915583e?q=80&w=800&auto=format&fit=crop',
+        price:'۱۵۰,۰۰۰ تومان',
+        desc:'رنگ اکریلیک با پوشش بالا و خشک‌شدن سریع. مناسب برای بوم و سطوح چندمنظوره.',
+        specs:['حجم: 500 میلی‌لیتر','پوشش بالا','خشک‌شدن سریع']
+      },
+      {
+        id:2, category:'brush', title:'قلم‌مو تخت سری مصنوعی سایز 6',
+        img:'https://images.unsplash.com/photo-1526318472351-c75fcf070201?q=80&w=800&auto=format&fit=crop',
+        price:'۴۵,۰۰۰ تومان',
+        desc:'قلم‌موی تخت با الیاف مصنوعی با دوام؛ مناسب برای اکریلیک و رنگ روغن.',
+        specs:['نوع: مصنوعی','سایز: 6','مناسب: اکریلیک/روغن']
+      },
+      {
+        id:3, category:'canvas', title:'بوم کنواس آماده 50x70 سانتی‌متر',
+        img:'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop',
+        price:'۲۰۰,۰۰۰ تومان',
+        desc:'بوم کنواس با چهارچوب چوبی سخت و زیرسازی مناسب برای رنگ روغن و اکریلیک.',
+        specs:['ابعاد: 50x70','جنس: کنواس مرغوب','چهارچوب: چوب کاج']
+      },
+      {
+        id:4, category:'resin', title:'رزین اپوکسی کریستالی 1 کیلو — شفاف',
+        img:'https://images.unsplash.com/photo-1611988619349-3f2d3b9f3f9c?q=80&w=800&auto=format&fit=crop',
+        price:'۲۸۰,۰۰۰ تومان',
+        desc:'رزین اپوکسی شفاف با حباب‌گیری آسان و سختی نهایی بالا، مناسب کارهای رزینی و میزهای هنری.',
+        specs:['وزن خالص: 1kg','زمان کار: 20-25 دقیقه','شفافیت بالا']
+      },
+      {
+        id:5, category:'brush', title:'قلم‌موی گرد طلا 2 – موی طبیعی',
+        img:'https://images.unsplash.com/photo-1520975918225-8b0b5f2a9a8a?q=80&w=800&auto=format&fit=crop',
+        price:'۶۸,۰۰۰ تومان',
+        desc:'قلم‌موی گرد با موی طبیعی برای جزئی‌کاری و تکنیک‌های دقیق نقاشی.',
+        specs:['نوع: موی طبیعی','سایز: 2','کاربری: جزئی‌کاری']
+      },
+      {
+        id:6, category:'paint', title:'ست رنگ آبرنگ 24 رنگ — حرفه‌ای',
+        img:'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop',
+        price:'۱۸۵,۰۰۰ تومان',
+        desc:'ست کامل 24 رنگ آبرنگ با پوشش و شفافیت عالی؛ مناسب دانشجویان و هنرمندان.',
+        specs:['تعداد: 24 رنگ','نوع: آبرنگ','بسته‌بندی: جعبه فلزی']
+      }
+    ];
+
+    function render(productsList){
+      const root = document.getElementById('products');
+      root.innerHTML = '';
+      productsList.forEach(p=>{
+        const el = document.createElement('div');
+        el.className='card';
+        el.innerHTML = `
+          <img src="${p.img}" alt="">
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+          <div class="price">${p.price}</div>
+          <div style="margin-top:8px;display:flex;gap:8px">
+            <button onclick='openModal(${p.id})' style="padding:8px 10px;border-radius:8px;border:0;background:#eee">جزئیات</button>
+            <button onclick='addToCart(${p.id})' class="btn">افزودن به سبد</button>
+          </div>
+        `;
+        root.appendChild(el);
+      });
+    }
+
+    function filterBy(cat){
+      if(cat==='all') render(products);
+      else render(products.filter(p=>p.category===cat));
+    }
+
+    function filterProducts(){
+      const q = document.getElementById('search').value.trim();
+      if(!q) return render(products);
+      const res = products.filter(p=> (p.title+p.desc).toLowerCase().includes(q.toLowerCase()));
+      render(res);
+    }
+
+    function openModal(id){
+      const p = products.find(x=>x.id===id);
+      document.getElementById('modalImg').src = p.img;
+      document.getElementById('modalTitle').innerText = p.title;
+      document.getElementById('modalDesc').innerText = p.desc;
+      document.getElementById('modalPrice').innerText = p.price;
+      const ul = document.getElementById('modalSpecs'); ul.innerHTML='';
+      p.specs.forEach(s=>{ const li=document.createElement('li'); li.innerText=s; ul.appendChild(li)});
+      document.getElementById('modal').classList.add('open');
+    }
+    function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+    function addToCart(id){ alert('محصول به سبد اضافه شد (برای پرداخت، بعدا راه‌اندازی درگاه)'); }
+
+    // initial render
+    render(products);
+  </script>
+</body>
+</html>
